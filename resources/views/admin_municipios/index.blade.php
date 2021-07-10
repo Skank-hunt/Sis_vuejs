@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <div class="container" id="ind">
-        <div class="col-12">
+        <div class="col-md-12 col-sm-12">
             <div class="card">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-11 col-sm-11">
-                            <h5 align="center">Usuarios</h5>
+                            <h5 align="center">Municipios</h5>
                         </div>
                         <div class="col-md-1 col-sm-1">
                         <button type="button" class="btn btn-outline-success" @click="Agregar()" title="Agregar">+</button>
@@ -33,16 +33,6 @@
                                 <data-table class=" col-12 table table-sm" :data="mun" :columns-to-display="gridColumns" :filter-key="searchQuery">
                                     <template slot="Municipio" scope="munici">
                                         <div class="text-left font-weight-bold pt-2">@{{ munici.entry.nombre_municipio }}</div>
-                                    </template>
-                                    <template slot="Encargado" scope="munici">
-                                        <div class="text-left font-weight-bold pt-2">@{{ munici.entry.name }}
-                                        @{{ munici.entry.a_paterno }} @{{ munici.entry.a_materno }}</div>
-                                    </template>
-                                    <template slot="Correo" scope="munici">
-                                        <div class="text-left font-weight-bold pt-2">@{{ munici.entry.email }}</div>
-                                    </template>
-                                    <template slot="Contraseña" scope="munici">
-                                        <div class="text-left font-weight-bold pt-2"></div>
                                     </template>
                                     <template slot="Acciones" scope="munici">
                                         <div class="text-left">
@@ -73,7 +63,7 @@
             },
             data: {
                 searchQuery: '',
-                gridColumns: ['Municipio','Encargado','Correo','Contraseña','Acciones'],
+                gridColumns: ['Municipio','Acciones'],
                 municipio:'/admin/lista',
                 ingresa:'/admin/agregar_municipio',
                 vereliminar:'/admin/ver_eliminar',
@@ -83,10 +73,8 @@
                 mun:[],
                 informacion: {
                     valores: {
-                        id_municipios: "",
-                        nom_municipio:"",
-                        representante:"",
-                        cargo:"",
+                        id: "",
+                        nombre_municipio:"",
                     },
                 },
             },
@@ -102,27 +90,23 @@
                 },
                 Guardar:function()
                 {
-                    axios.post(this.ingresa,{nom_municipio:this.nom_municipio,
-                                            representante:this.representante,
-                                            cargo:this.cargo,})
+                    axios.post(this.ingresa,{nombre_municipio:this.nombre_municipio,})
                     .then(response=>{
-                        this.nom_municipio="";
-                        this.representante="";
-                        this.cargo="";
+                        this.nombre_municipio="";
                         this.popToast('Registro exitoso!');
                         $('#modalmunicipios').modal('hide');
                         this.getNombres();
                     }).catch(error=>{ });
                 },
                 Eliminar:function (munici) {
-                    axios.post(this.vereliminar, {id: munici.id_municipios}).then(response => {
-                            this.informacion.valores.id_municipios = response.data.valores[0].id_municipios;
+                    axios.post(this.vereliminar, {id: munici.id}).then(response => {
+                            this.informacion.valores.id = response.data.valores[0].id;
                         $('#modaleliminar').modal('show');
                     });
                 },
                 AceptaEliminar:function () {
                     axios.post(this.eliminamun,  {
-                                id_mun: this.informacion.valores.id_municipios,
+                                id_mun: this.informacion.valores.id,
                             })
                     .then(response => {
                         this.popToast1('Eliminación correcta!');
@@ -131,20 +115,16 @@
                     });
                 },
                 Actualizar:function (munici) {
-                    axios.post(this.veractualizar, {id: munici.id_municipios}).then(response => {
-                            this.informacion.valores.id_municipios = response.data.valores[0].id_municipios;
-                            this.informacion.valores.nom_municipio = response.data.valores[0].nom_municipio;
-                            this.informacion.valores.representante = response.data.valores[0].representante;
-                            this.informacion.valores.cargo = response.data.valores[0].cargo;
+                    axios.post(this.veractualizar, {id: munici.id}).then(response => {
+                            this.informacion.valores.id = response.data.valores[0].id;
+                            this.informacion.valores.nombre_municipio = response.data.valores[0].nombre_municipio;
                         $('#modalactualizar').modal('show');
                     });
                 },
                 AceptaActualizar:function () {
                     axios.post(this.actualizamun,  {
-                                id_mun: this.informacion.valores.id_municipios,
-                                nom_mun: this.informacion.valores.nom_municipio,
-                                repre: this.informacion.valores.representante,
-                                cargo: this.informacion.valores.cargo,
+                                id_mun: this.informacion.valores.id,
+                                nom_mun: this.informacion.valores.nombre_municipio,
                             })
                     .then(response => {
                         this.popToast('Registro Actualizado!');

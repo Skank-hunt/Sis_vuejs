@@ -9,17 +9,8 @@
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="inputState">Municipio</label>
-                    <input type="text" id="nom_municipio" name="nom_municipio" v-model="nom_municipio" class="form-control" 
+                    <input type="text" id="nombre_municipio" name="nombre_municipio" v-model="nombre_municipio" class="form-control" 
                     required="true">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="inputState">Representante</label>
-                    <input type="text" id="representante" name="representante" v-model="representante" class="form-control" 
-                    required="true">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="inputState">Cargo del Representante</label>
-                    <input type="text" id="cargo" name="cargo" v-model="cargo" class="form-control" required="true">
                   </div>
                 </div>
               </form>

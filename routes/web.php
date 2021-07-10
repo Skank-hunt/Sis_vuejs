@@ -15,5 +15,14 @@ Route::group(['prefix'=>'admin'],function () {
     Route::post('/acepta_eliminar','municipios_adminController@aceptaelimina');
     Route::post('/ver_actualizar','municipios_adminController@vereactualiza');
     Route::post('/acepta_actualizar','municipios_adminController@aceptactualizar');
+
+    Route::Resource('/usuarios','usuarios_adminController');
+    Route::get('/lista_usuarios','usuarios_adminController@listauser');
+    Route::get('/combobox','usuarios_adminController@combo');
+    Route::post('/agregar_usuario','usuarios_adminController@agregauser');
+    Route::post('/ver_eliminar_user','usuarios_adminController@verelimina_user');
+    Route::post('/acepta_eliminar_user','usuarios_adminController@aceptaelimina_user');
+    Route::post('/ver_actualizar_user','usuarios_adminController@vereactualiza_user');
+    Route::post('/acepta_actualizar_user','usuarios_adminController@aceptactualizar_user');
 });
 

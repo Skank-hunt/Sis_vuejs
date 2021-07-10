@@ -34,26 +34,16 @@
                 <nav class="dashboard-nav-list">
                     <a href="/home" class="dashboard-nav-item active"><i class="fas fa-home"></i>Inicio</a>
                     <div class='dashboard-nav-dropdown'>
-                        <a class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                            <i class="fas fa-users"></i> Municipios 
+                        <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                            <i class="fas fa-users"></i> Municipios y Usuarios
                         </a>
                         <div class='dashboard-nav-dropdown-menu'>
-                            <a href="/admin/municipios" class="dashboard-nav-dropdown-item">Usuarios</a>
+                            <a href="/admin/municipios" class="dashboard-nav-dropdown-item">Municipios</a>
+                            <a href="/admin/usuarios" class="dashboard-nav-dropdown-item">Usuarios</a>
                         </div>
                     </div>
                     <a href="#" class="dashboard-nav-item"><i class="fas fa-tachometer-alt"></i> dashboard</a>
                     <a href="#" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Upload </a>
-                    <div class='dashboard-nav-dropdown'>
-                        <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                            <i class="fas fa-photo-video"></i> Media 
-                        </a>
-                        <div class='dashboard-nav-dropdown-menu'>
-                            <a href="#" class="dashboard-nav-dropdown-item">All</a>
-                            <a href="#" class="dashboard-nav-dropdown-item">Recent</a>
-                            <a href="#" class="dashboard-nav-dropdown-item">Images</a>
-                            <a href="#" class="dashboard-nav-dropdown-item">Video</a>
-                        </div>
-                    </div>
                     <div class='dashboard-nav-dropdown'>
                         <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
                             <i class="fas fa-money-check-alt"></i> Payments 

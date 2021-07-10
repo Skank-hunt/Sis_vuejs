@@ -7,20 +7,10 @@
             <div class="modal-body">
               <form>
                 <div class="form-row">
-                    <input type="text" v-model="informacion.valores.id_municipios" id="id_municipios" name="id_municipios" hidden="true">
+                    <input type="text" v-model="informacion.valores.id" id="id" name="id" hidden="true">
                     <div class="form-group col-md-12">
                       <label for="inputState">Municipio</label>
-                      <input type="text" v-model="informacion.valores.nom_municipio" id="nom_municipio" name="nom_municipio"
-                        class="form-control" required="true">
-                    </div>
-                    <div class="form-group col-md-12">
-                      <label for="inputState">Representante</label>
-                      <input type="text" v-model="informacion.valores.representante" id="representante" name="representante"
-                        class="form-control" required="true">
-                    </div>
-                    <div class="form-group col-md-12">
-                      <label for="inputState">Cargo</label>
-                      <input type="text" v-model="informacion.valores.cargo" id="cargo" name="cargo"
+                      <input type="text" v-model="informacion.valores.nombre_municipio" id="nombre_municipio" name="nombre_municipio"
                         class="form-control" required="true">
                     </div>
                 </div>

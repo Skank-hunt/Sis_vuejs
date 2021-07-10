@@ -1,4 +1,4 @@
-<div class="modal fade" id="modaleliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+<div class="modal fade" id="modaluser_elimina" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,8 +7,8 @@
             <div class="modal-body">
               <form>
                 <div class="form-row">
-                   <h3>¿Desea eliminar el registro?</h3>
-                   <input type="text" v-model="informacion.valores.id" id="id" name="id" hidden="true">
+                   <h3>¿Desea eliminar al usuario?</h3>
+                   <input type="text" v-model="informacion_user.valores.id" id="id" name="id" hidden="true">
                 </div>
               </form>
             </div>

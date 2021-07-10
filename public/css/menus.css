@@ -167,7 +167,7 @@ h1, .h1 {
 }
 
 .dashboard-nav {
-    background-color: #007bff;
+    background-color: #0d67a5;
 }
 
 .dashboard-nav a {
@@ -348,7 +348,7 @@ h1, .h1 {
 }
 
 .dashboard-toolbar {
-    background-color: #007bff;
+    background-color: #0d67a5;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
