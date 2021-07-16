@@ -8,12 +8,12 @@
               <form>
                 <div class="form-row">
                    <h3>¿Desea eliminar el registro?</h3>
-                   <input type="text" v-model="informacion.valores.id" id="id" name="id" hidden="true">
+                   <input type="text" v-model="infoNames.values.id" id="id" name="id" hidden="true">
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary"  @click="AceptaEliminar()">Si</button>
+                <button type="button" class="btn btn-outline-primary"  @click="removeData()">Si</button>
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal">No</button>
             </div>
         </div>

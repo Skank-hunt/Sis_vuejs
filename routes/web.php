@@ -9,12 +9,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin'],function () {
     Route::Resource('/municipios','municipios_adminController');
-    Route::get('/lista','municipios_adminController@listarmun');
-    Route::post('/agregar_municipio','municipios_adminController@agregamun');
-    Route::post('/ver_eliminar','municipios_adminController@verelimina');
-    Route::post('/acepta_eliminar','municipios_adminController@aceptaelimina');
-    Route::post('/ver_actualizar','municipios_adminController@vereactualiza');
-    Route::post('/acepta_actualizar','municipios_adminController@aceptactualizar');
+    Route::get('/list_mun','municipios_adminController@view');
+    Route::post('/findOne','municipios_adminController@getOne');
+    Route::post('/deleteOne','municipios_adminController@destroy');
+    Route::post('/addOne','municipios_adminController@store');
+    Route::post('/list_data','municipios_adminController@getData');
+    Route::post('/update_data','municipios_adminController@update');
 
     Route::Resource('/usuarios','usuarios_adminController');
     Route::get('/lista_usuarios','usuarios_adminController@listauser');
@@ -24,5 +24,11 @@ Route::group(['prefix'=>'admin'],function () {
     Route::post('/acepta_eliminar_user','usuarios_adminController@aceptaelimina_user');
     Route::post('/ver_actualizar_user','usuarios_adminController@vereactualiza_user');
     Route::post('/acepta_actualizar_user','usuarios_adminController@aceptactualizar_user');
+
+    Route::get('/lista/{id}/edit','municipios_adminController@edit');
+    Route::post('/lista','municipios_adminController@store');
+    Route::post('/lista/{id}','municipios_adminController@update');
+    Route::delete('/lista/{id}','municipios_adminController@destroy');
+//    Route::get('/municipios','municipios_adminController@view');
 });
 

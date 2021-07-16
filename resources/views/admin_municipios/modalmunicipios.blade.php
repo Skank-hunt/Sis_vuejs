@@ -16,7 +16,7 @@
               </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary"  @click="Guardar()">Agregar</button>
+                <button type="button" class="btn btn-outline-primary"  @click="Storing()">Agregar</button>
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
