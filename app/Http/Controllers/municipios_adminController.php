@@ -47,21 +47,16 @@ class municipios_adminController extends Controller
         Municipios::create($datum);
     }
 
-    public function agregamun(Request $request){
-        $mun = array(
-            "nombre_municipio"=>$request->nombre_municipio
-        );
-        Municipios::create($mun);
-    }
-
-    public function vereactualiza(Request $request){
-        $data['valores']=DB::select('SELECT id,nombre_municipio FROM municipio WHERE id='.$request->id);
+    public function getData(Request $request)
+    {
+        $data['values'] = DB::select('SELECT id, nombre_municipio FROM municipio WHERE id ='.$request->id);
         return $data;
     }
 
-    public function aceptactualizar(Request $request){
+    public function update(Request $request)
+    {
         DB::table('municipio')
-                ->where('id', '=', $request->id_mun)
-                ->update(array("nombre_municipio"=>$request->nom_mun));
+            ->where('id','=',$request->id)
+            ->update(['nombre_municipio' => $request->nombre_municipio]);
     }
 }

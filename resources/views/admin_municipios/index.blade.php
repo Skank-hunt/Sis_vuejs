@@ -45,7 +45,7 @@
 {{--                                    </template>--}}
                                     <template slot="Acciones" scope="u">
                                         <div class="text-center">
-                                            <button class="btn btn-outline-primary" data-toogle="tooltip" data-placement="bottom" title="Editar nombre del Municipio"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-outline-primary" data-toogle="tooltip" data-placement="bottom" title="Editar nombre del Municipio" @click="FindData(u.entry)"><i class="fas fa-edit"></i></button>
                                             <button class="btn btn-outline-danger" data-toogle="tooltip" data-placement="bottom" title="Eliminar registro del Municipio" @click="deleteNames(u.entry)"><i class="fas fa-times-circle"></i></button>
                                         </div>
                                     </template>
@@ -58,6 +58,7 @@
         </div>
         @include('admin_municipios.modaleliminar')
         @include('admin_municipios.modalmunicipios')
+        @include('admin_municipios.modalactualizar')
     </div>
 
     <script type="text/javascript">
@@ -75,6 +76,8 @@
                 getItemtoDelete: '/admin/findOne',
                 deleteRecord: '/admin/deleteOne',
                 addingRecord: '/admin/addOne',
+                findItem: '/admin/list_data',
+                updateItem: '/admin/update_data',
                 names: [],
                 infoNames:{
                     values:{
@@ -125,6 +128,27 @@
 
                     })
                 },
+                FindData: function(u){
+                    axios.post(this.findItem, {id: u.id}).then(response =>{
+                        this.infoNames.values.id = response.data.values[0].id;
+                        this.infoNames.values.nombre_municipio = response.data.values[0].nombre_municipio;
+                        $("#modalactualizar").modal('show');
+                    })
+
+                },
+
+                updateData: function () {
+                    axios.post(this.updateItem,{
+                        id: this.infoNames.values.id,
+                        nombre_municipio: this.infoNames.values.nombre_municipio,
+                    })
+                    .then(response =>{
+                        this.nombre_municipio = '';
+                        $("#modalactualizar").modal('hide');
+                        this.getNames();
+                    })
+                },
+
                 popToast(Mensaje) {
                     const h = this.$createElement;
                     const vNodeMsg = h(
