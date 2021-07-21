@@ -10,6 +10,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::middleware(['admin'])->prefix('admin')->namespace('Admin')->group(function (){
+    Route::resource('/luminaria','LuminariasController');
+    Route::get('/luminarias','LuminariasController@index');
+
     Route::Resource('/municipios','municipios_adminController');
     Route::get('/list_mun','municipios_adminController@view');
     Route::post('/findOne','municipios_adminController@getOne');
