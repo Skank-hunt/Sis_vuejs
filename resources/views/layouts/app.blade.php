@@ -19,7 +19,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/menus.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
+    <script src="{{asset('js/jquery.min.js')}}" type="text/javascript"></script>
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
@@ -46,12 +49,12 @@
                     <a href="#" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Upload </a>
                     <div class='dashboard-nav-dropdown'>
                         <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                            <i class="fas fa-money-check-alt"></i> Payments 
+                            <i class="fas fa-money-check-alt"></i> Documentos
                         </a>
                         <div class='dashboard-nav-dropdown-menu'>
-                            <a href="#" class="dashboard-nav-dropdown-item">All</a>
-                            <a href="#" class="dashboard-nav-dropdown-item">Recent</a>
-                            <a href="#" class="dashboard-nav-dropdown-item"> Projections</a>
+                            <a href="#" class="dashboard-nav-dropdown-item">Informes</a>
+                            <a href="#" class="dashboard-nav-dropdown-item">Ficha Tecnica</a>
+                            <a href="{{ url('/admin/security') }}" class="dashboard-nav-dropdown-item"> Seguridad</a>
                         </div>
                     </div>
                     <a href="#" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Settings </a>

@@ -1,10 +1,10 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Municipios;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
+//use Illuminate\Support\Facades\Auth;
 
 class municipios_adminController extends Controller
 {

@@ -1,13 +1,15 @@
 <?php
 
-Route::get('/', function () {
+use Illuminate\Support\Facades\Route;
+/*Route::get('/', function () {
     return view('auth.login');
-});
+});*/
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix'=>'admin'],function () {
+
+Route::middleware(['admin'])->prefix('admin')->namespace('Admin')->group(function (){
     Route::Resource('/municipios','municipios_adminController');
     Route::get('/list_mun','municipios_adminController@view');
     Route::post('/findOne','municipios_adminController@getOne');
@@ -15,6 +17,12 @@ Route::group(['prefix'=>'admin'],function () {
     Route::post('/addOne','municipios_adminController@store');
     Route::post('/list_data','municipios_adminController@getData');
     Route::post('/update_data','municipios_adminController@update');
+
+    Route::Resource('/security','securityController');
+    Route::get('/getDocs','securityController@getInfo');
+    Route::post('/insertDocs','securityController@store');
+    Route::post('/searchOneDoc','securityController@show');
+
 
     Route::Resource('/usuarios','usuarios_adminController');
     Route::get('/lista_usuarios','usuarios_adminController@listauser');
@@ -29,6 +37,6 @@ Route::group(['prefix'=>'admin'],function () {
     Route::post('/lista','municipios_adminController@store');
     Route::post('/lista/{id}','municipios_adminController@update');
     Route::delete('/lista/{id}','municipios_adminController@destroy');
-//    Route::get('/municipios','municipios_adminController@view');
 });
+
 

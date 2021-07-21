@@ -43,9 +43,21 @@ return [
 
     'disks' => [
 
-        'local' => [
+        'local1' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => public_path().'/files/rij',
+        ],
+        'local2' => [
+            'driver' => 'local',
+            'root' => public_path().'/files/rim',
+        ],
+        'local3' => [
+            'driver' => 'local',
+            'root' => public_path().'/files/supervision',
+        ],
+        'local4' => [
+            'driver' => 'local',
+            'root' => public_path().'/files/foto',
         ],
 
         'public' => [

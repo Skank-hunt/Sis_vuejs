@@ -32,13 +32,13 @@
                             <div class="tableFixHeadLista">
                                 <data-table class="col-12 table table-sm" :data="names" :columns-to-display="gridColumns" :filter-key="searchQuery">
                                     <template slot="id" scope="u">
-                                        <div class="text-left font-weight-bold pt-2">@{{ u.entry.id }}</div>
+                                        <div class="text-center font-weight-bold pt-2">@{{ u.entry.id }}</div>
                                     </template>
                                     <template slot="Municipio" scope="u">
-                                        <div class="text-left font-weight-bold pt-2">@{{ u.entry.nombre_municipio }}</div>
+                                        <div class="text-center font-weight-bold pt-2">@{{ u.entry.nombre_municipio }}</div>
                                     </template>
 {{--                                    <template slot="created_at" scope="u">--}}
-{{--                                        <div class="text-left font-weight-bold pt-2">@{{ u.entry.created_at }}</div>--}}
+{{--                                        <div class="text-center font-weight-bold pt-2">@{{ u.entry.created_at }}</div>--}}
 {{--                                    </template>--}}
 {{--                                    <template slot="updated_at" scope="u">--}}
 {{--                                        <div class="text-left font-weight-bold pt-2">@{{ u.entry.updated_at }}</div>--}}
