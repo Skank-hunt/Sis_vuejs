@@ -39,7 +39,7 @@ a {
 }
 
 a:hover {
-    color: black;
+    color: #b4b4b4;
     text-decoration: underline;
 }
 
@@ -234,7 +234,7 @@ h1, .h1 {
 }
 
 .dashboard-nav-item:hover {
-   color: black;
+   color: #b4b4b4;
 }
 
 .active {
@@ -316,7 +316,7 @@ h1, .h1 {
 }
 
 .dashboard-nav-dropdown-item:hover {
-   color: black;
+   color: #b4b4b4;
 }
 
 .menu-toggle {
