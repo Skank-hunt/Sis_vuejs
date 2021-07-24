@@ -41,11 +41,11 @@
                             <i class="fas fa-users"></i> Municipios y Usuarios
                         </a>
                         <div class='dashboard-nav-dropdown-menu'>
-                            <a href="/admin/municipios" class="dashboard-nav-dropdown-item">Municipios</a>
-                            <a href="/admin/usuarios" class="dashboard-nav-dropdown-item">Usuarios</a>
+                            <a href="{{url('/admin/municipios')}}" class="dashboard-nav-dropdown-item">Municipios</a>
+                            <a href="{{url('/admin/usuarios')}}" class="dashboard-nav-dropdown-item">Usuarios</a>
                         </div>
                     </div>
-                    <a href="#" class="dashboard-nav-item"><i class="fas fa-tachometer-alt"></i> dashboard</a>
+                    <a href="{{ url('/admin/luminaria') }}" class="dashboard-nav-item"><i class="fas fa-tachometer-alt"></i> Luminarias</a>
                     <a href="#" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Upload </a>
                     <div class='dashboard-nav-dropdown'>
                         <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">

@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="tableFixHeadLista">
-                                <data-table class="col-12 table table-sm" :data="names" :columns-to-display="gridColumns" :filter-key="searchQuery">
+                                <data-table class="col-12 table table-sm" :data="names" :columns-to-display="gridColumns" id="example" :filter-key="searchQuery">
                                     <template slot="id" scope="u">
                                         <div class="text-center font-weight-bold pt-2">@{{ u.entry.id }}</div>
                                     </template>
@@ -49,8 +49,17 @@
                                             <button class="btn btn-outline-danger" data-toogle="tooltip" data-placement="bottom" title="Eliminar registro del Municipio" @click="deleteNames(u.entry)"><i class="fas fa-times-circle"></i></button>
                                         </div>
                                     </template>
+
+
+
                                 </data-table>
+
                             </div>
+                            <tr id="foot">
+                                <th id="neim">Name</th>
+                                <th id="pos">Position</th>
+                                <th id="ofis">Office</th>
+                            </tr>
                         </div>
                     </div>
                 </div>
@@ -62,6 +71,38 @@
     </div>
 
     <script type="text/javascript">
+        $(document).ready(function (){
+            $("#neim").html('<input type="text" placeholder="Search neim" />')
+            $("#pos").html('<input type="text" placeholder="Search pos" />')
+            $("#ofis").html('<input type="text" placeholder="Search ofis" />')
+
+        })
+        // $(document).ready(function() {
+        //     // Setup - add a text input to each footer cell
+        //     $('#example tfoot th').each( function () {
+        //         var title = $(this).text();
+        //         $(this).hml( '<input type="text" placeholder="Search '+title+'" />' );
+        //     } );
+        //
+        //     // DataTable
+        //     var table = $('#example').DataTable({
+        //         initComplete: function () {
+        //             // Apply the search
+        //             this.api().columns().every( function () {
+        //                 var that = this;
+        //
+        //                 $( 'input', this.footer() ).on( 'keyup change clear', function () {
+        //                     if ( that.search() !== this.value ) {
+        //                         that
+        //                             .search( this.value )
+        //                             .draw();
+        //                     }
+        //                 } );
+        //             } );
+        //         }
+        //     });
+        //
+        // } );
         Vue.use(DataTable);
 
         new Vue({
