@@ -11,6 +11,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['admin'])->prefix('admin')->namespace('Admin')->group(function (){
     Route::resource('/luminaria','LuminariasController');
     Route::get('/lista_lum','LuminariasController@view');
+    Route::post('/getluminfo','LuminariasController@getOne');
 
     Route::Resource('/municipios','municipios_adminController');
     Route::get('/list_mun','municipios_adminController@view');

@@ -37,29 +37,14 @@
                                     <template slot="Municipio" scope="u">
                                         <div class="text-center font-weight-bold pt-2">@{{ u.entry.nombre_municipio }}</div>
                                     </template>
-{{--                                    <template slot="created_at" scope="u">--}}
-{{--                                        <div class="text-center font-weight-bold pt-2">@{{ u.entry.created_at }}</div>--}}
-{{--                                    </template>--}}
-{{--                                    <template slot="updated_at" scope="u">--}}
-{{--                                        <div class="text-left font-weight-bold pt-2">@{{ u.entry.updated_at }}</div>--}}
-{{--                                    </template>--}}
                                     <template slot="Acciones" scope="u">
                                         <div class="text-center">
                                             <button class="btn btn-outline-primary" data-toogle="tooltip" data-placement="bottom" title="Editar nombre del Municipio" @click="FindData(u.entry)"><i class="fas fa-edit"></i></button>
                                             <button class="btn btn-outline-danger" data-toogle="tooltip" data-placement="bottom" title="Eliminar registro del Municipio" @click="deleteNames(u.entry)"><i class="fas fa-times-circle"></i></button>
                                         </div>
                                     </template>
-
-
-
                                 </data-table>
-
                             </div>
-                            <tr id="foot">
-                                <th id="neim">Name</th>
-                                <th id="pos">Position</th>
-                                <th id="ofis">Office</th>
-                            </tr>
                         </div>
                     </div>
                 </div>
@@ -71,38 +56,6 @@
     </div>
 
     <script type="text/javascript">
-        $(document).ready(function (){
-            $("#neim").html('<input type="text" placeholder="Search neim" />')
-            $("#pos").html('<input type="text" placeholder="Search pos" />')
-            $("#ofis").html('<input type="text" placeholder="Search ofis" />')
-
-        })
-        // $(document).ready(function() {
-        //     // Setup - add a text input to each footer cell
-        //     $('#example tfoot th').each( function () {
-        //         var title = $(this).text();
-        //         $(this).hml( '<input type="text" placeholder="Search '+title+'" />' );
-        //     } );
-        //
-        //     // DataTable
-        //     var table = $('#example').DataTable({
-        //         initComplete: function () {
-        //             // Apply the search
-        //             this.api().columns().every( function () {
-        //                 var that = this;
-        //
-        //                 $( 'input', this.footer() ).on( 'keyup change clear', function () {
-        //                     if ( that.search() !== this.value ) {
-        //                         that
-        //                             .search( this.value )
-        //                             .draw();
-        //                     }
-        //                 } );
-        //             } );
-        //         }
-        //     });
-        //
-        // } );
         Vue.use(DataTable);
 
         new Vue({
@@ -172,7 +125,7 @@
                 FindData: function(u){
                     axios.post(this.findItem, {id: u.id}).then(response =>{
                         this.infoNames.values.id = response.data.values[0].id;
-                        this.infoNames.values.nombre_municipio = response.data.values[0].nombre_municipio;
+()                        this.infoNames.values.nombre_municipio = response.data.values[0].nombre_municipio;
                         $("#modalactualizar").modal('show');
                     })
 

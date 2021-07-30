@@ -18,4 +18,11 @@ class LuminariasController extends Controller
         $data = DB::select('SELECT * FROM luminarias_completa');
         return $data;
     }
+
+    public function getOne(Request $request)
+    {
+        $data = DB::select("SELECT * FROM luminarias_completa WHERE coodigo_luminaria=".$request->coodigo_luminaria);
+        return $data;
+    }
+
 }

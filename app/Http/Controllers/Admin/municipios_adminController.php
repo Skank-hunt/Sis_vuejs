@@ -49,7 +49,7 @@ class municipios_adminController extends Controller
 
     public function getData(Request $request)
     {
-        $data['values'] = DB::select('SELECT id, nombre_municipio FROM municipio WHERE id ='.$request->id);
+        $data['values'] = DB::select('SELECT * FROM municipio WHERE id ='.$request->id);
         return $data;
     }
 
