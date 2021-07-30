@@ -21,7 +21,7 @@ class LuminariasController extends Controller
 
     public function getOne(Request $request)
     {
-        $data = DB::select("SELECT * FROM luminarias_completa WHERE coodigo_luminaria=".$request->coodigo_luminaria);
+        $data['values'] = DB::select('SELECT * FROM luminarias_completa WHERE coodigo_luminaria='.$request->coodigo_luminaria);
         return $data;
     }
 

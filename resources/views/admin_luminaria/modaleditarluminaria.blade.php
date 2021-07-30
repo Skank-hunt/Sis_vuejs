@@ -1,4 +1,4 @@
-<div class="modal fade bd-example-modal-lg" id="modalLuminaria" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaleditarluminaria" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -51,8 +51,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="estado_carcasa">Carcasa</label>
-                            <input type="text" id="estado_carcasa">
-{{--                            <input type="text" v-model="infoLumin.values.estado_carcasa" class="form-control" id="estado_carcasa" name="estado_carcasa">--}}
+                            <input type="text" v-model="infoLumin.values.estado_carcasa" class="form-control" id="estado_carcasa">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="estado_poste">Poste</label>

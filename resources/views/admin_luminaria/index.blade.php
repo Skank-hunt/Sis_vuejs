@@ -114,7 +114,6 @@
                 </div>
             </div>
         </div>
-{{--        aqui van los includes--}}
         @include('admin_luminaria.modaleditarluminaria')
     </div>
 
@@ -134,31 +133,30 @@
                 finder: [],
                 infoLumin:{
                    values:{
-                       coodigo_luminaria:"",
-                       fecha:"",
-                       hora:"",
-                       operador:"",
-                       latitud:"",
-                       longitud:"",
-                       nombre_municipio:"",
-                       nombre_colonia:"",
-                       nombre_calle:"",
-                       tipo_calle:"",
-                       tipo_via:"",
-                       tipo_poste:"",
-                       estado_poste:"",
-                       tipo_luminaria:"",
-                       estado_luminaria:"",
-                       tipo_carcasa:"",
-                       tiempo_uso:"",
-                       numero_lamparas:"",
-                       numero_medidor:"",
-                       carga_aceptada:"",
-                       observaciones:"",
-                       fotografia:"",
-                       conciliada:"",
-                       users_id:"",
-
+                           coodigo_luminaria:"",
+                           fecha:"",
+                           hora:"",
+                           operador:"",
+                           latitud:"",
+                           longitud:"",
+                           nombre_municipio:"",
+                           nombre_colonia:"",
+                           nombre_calle:"",
+                           tipo_calle:"",
+                           tipo_via:"",
+                           tipo_poste:"",
+                           estado_poste:"",
+                           tipo_luminaria:"",
+                           estado_luminaria:"",
+                           tipo_carcasa:"",
+                           tiempo_uso:"",
+                           numero_lamparas:"",
+                           numero_medidor:"",
+                           carga_aceptada:"",
+                           observaciones:"",
+                           fotografia:"",
+                           conciliada:"",
+                           users_id:"",
                    },
                 },
             },
@@ -166,15 +164,27 @@
                getLuminarias: function () {
                    axios.get(this.data_luminaria ).then(response=>{
                        this.finder = response.data;
-                   }).catch(error =>{
-
-                   })
+                   }).catch(error =>{})
                },
                getDatum: function (u) {
                    axios.post(this.getOnlyOne, {coodigo_luminaria: u.coodigo_luminaria}).then(response =>{
                        this.infoLumin.values.coodigo_luminaria = response.data.values[0].coodigo_luminaria;
-                   })
-               }
+                       this.infoLumin.values.nombre_municipio = response.data.values[0].nombre_municipio;
+                       this.infoLumin.values.nombre_colonia = response.data.values[0].nombre_colonia;
+                       this.infoLumin.values.nombre_calle = response.data.values[0].nombre_calle;
+                       this.infoLumin.values.tiempo_uso = response.data.values[0].tiempo_uso;
+                       this.infoLumin.values.tipo_carcasa = response.data.values[0].tipo_carcasa;
+                       this.infoLumin.values.tipo_poste = response.data.values[0].tipo_poste;
+                       this.infoLumin.values.tipo_luminaria = response.data.values[0].tipo_luminaria;
+                       this.infoLumin.values.estado_carcasa = response.data.values[0].estado_carcasa;
+                       this.infoLumin.values.estado_poste = response.data.values[0].estado_poste;
+                       this.infoLumin.values.estado_luminaria = response.data.values[0].estado_luminaria;
+                       this.infoLumin.values.carga_aceptada = response.data.values[0].carga_aceptada;
+                       this.infoLumin.values.numero_lamparas = response.data.values[0].numero_lamparas;
+                       this.infoLumin.values.numero_medidor = response.data.values[0].numero_medidor;
+                       $("#modaleditarluminaria").modal('show');
+                   });
+               },
             }
         });
     </script>
