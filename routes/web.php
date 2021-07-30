@@ -40,6 +40,8 @@ Route::middleware(['admin'])->prefix('admin')->namespace('Admin')->group(functio
     Route::post('/lista','municipios_adminController@store');
     Route::post('/lista/{id}','municipios_adminController@update');
     Route::delete('/lista/{id}','municipios_adminController@destroy');
+
+    Route::resource('mapa','MapaController');
 });
 
 

@@ -57,7 +57,7 @@
                             <a href="{{ url('/admin/security') }}" class="dashboard-nav-dropdown-item"> Seguridad</a>
                         </div>
                     </div>
-                    <a href="#" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Settings </a>
+                    <a href="{{url('/admin/mapa')}}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Mapa Luminarias </a>
                     <a href="#" class="dashboard-nav-item"><i class="fas fa-user"></i> Profile </a>
                     <div class="nav-item-divider"></div>
                     <a href="{{ route('logout') }}" class="dashboard-nav-item"
