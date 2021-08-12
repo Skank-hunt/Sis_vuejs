@@ -35,6 +35,10 @@
                         <div class="form-group col-md-4">
                             <label for="tipo_carcasa">Carcasa</label>
                             <input type="text" v-model="infoLumin.values.tipo_carcasa" class="form-control" id="tipo_carcasa" name="tipo_carcasa">
+                            <select name="tipo_carcasa" id="tipo_carcasa" v-model="tipo_carcasa" class="custom-select custom-select-md">
+                                <option value="" selected disabled="true">vacío</option>
+                                <option v-for="dato in finder" v-bind:value="dato.coodigo_luminaria">@{{ tipo_luminaria }}</option>
+                            </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="tipo_poste">Poste</label>
@@ -51,7 +55,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="estado_carcasa">Carcasa</label>
-                            <input type="text" v-model="infoLumin.values.estado_carcasa" class="form-control" id="estado_carcasa">
+                            <input type="text" v-model="infoLumin.values.estado_carcasa" class="form-control" id="estado_carcasa" name="estado_carcasa">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="estado_poste">Poste</label>
@@ -92,7 +96,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <input type="text" disabled v-model="infoLumin.values.operador">
+                <input type="text" disabled v-model="infoLumin.values.operador" name="operador" id="operador">
                 <button type="button" class="btn btn-outline-primary"  @click="Storing()">Agregar</button>
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
             </div>

@@ -23,7 +23,8 @@ Route::middleware(['admin'])->prefix('admin')->namespace('Admin')->group(functio
 
     Route::Resource('/security','securityController');
     Route::get('/getDocs','securityController@getInfo');
-    Route::post('/insertDocs','securityController@store');
+    Route::post('/security/{id}','securityController@store');
+    Route::delete('/security/{id}','SecurityController@destroy');
     Route::post('/searchOneDoc','securityController@show');
 
 

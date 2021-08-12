@@ -73,6 +73,7 @@
                 // dispost = ''
                 let url = window.location+'/'
                 let id = $(this).data('id');
+                console.log(url)
                 let splited = id.split(',')
                 let string1 = splited[0]
                 let string2 = splited[1]

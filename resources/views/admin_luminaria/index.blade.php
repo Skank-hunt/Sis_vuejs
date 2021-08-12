@@ -156,6 +156,7 @@
                            observaciones:"",
                            fotografia:"",
                            conciliada:"",
+                       estado_carcasa : "",
                            users_id:"",
                    },
                 },
@@ -166,8 +167,9 @@
                        this.finder = response.data;
                    }).catch(error =>{})
                },
-               getDatum: function (u) {
-                   axios.post(this.getOnlyOne, {coodigo_luminaria: u.coodigo_luminaria}).then(response =>{
+        getDatum: function (u) {
+            $("#modaleditarluminaria").modal('show');
+            axios.post(this.getOnlyOne, {coodigo_luminaria: u.coodigo_luminaria}).then(response =>{
                        this.infoLumin.values.coodigo_luminaria = response.data.values[0].coodigo_luminaria;
                        this.infoLumin.values.nombre_municipio = response.data.values[0].nombre_municipio;
                        this.infoLumin.values.nombre_colonia = response.data.values[0].nombre_colonia;
@@ -182,7 +184,7 @@
                        this.infoLumin.values.carga_aceptada = response.data.values[0].carga_aceptada;
                        this.infoLumin.values.numero_lamparas = response.data.values[0].numero_lamparas;
                        this.infoLumin.values.numero_medidor = response.data.values[0].numero_medidor;
-                       $("#modaleditarluminaria").modal('show');
+                       this.infoLumin.values.operador = response.data.values[0].operador;
                    });
                },
             }
