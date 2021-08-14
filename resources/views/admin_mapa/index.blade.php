@@ -5,7 +5,7 @@
 
     <div class="container">
         <div id="myMap" style="height: 600px;"></div>
-    </div>web
+    </div>
 
 {{--  @dd($datos)--}}
     @foreach ($datos as $item)
@@ -16,11 +16,20 @@
         <input type="hidden" name="nombre_calle" id="nombre_calle" value="{{ $item->nombre_calle }}"></td>
         <input type="hidden" name="tipo_via" id="tipo_via" value="{{ $item->tipo_via }}"></td>
         <input type="hidden" name="carga_aceptada" id="carga_aceptada" value="{{ $item->carga_aceptada }}"></td>
-
+{{--        <img src="{{ url('files/foto/'.$item->fotografia) }}" alt="imagen no cargada" style="width: 100px; height: 100px;" id="fotografia" name="fotografia">--}}
+        <input type="text" id="fotografia" name="fotografia" value="{{ $item->fotografia }}">
 
     @endforeach
 
   <script type="text/javascript">
+
+      var urle = window.location.hostname;
+      var url = urle+'/files/foto/'
+
+      var myImage = new Image(150,150);
+      myImage.src = url+'foto 4611539e2da192.jpg';
+
+      console.log(myImage)
     let myMap = L.map('myMap').setView([19.28786, -99.65324], 13)
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -35,7 +44,7 @@
     var calle = document.getElementsByName("nombre_calle")
     var via = document.getElementsByName("tipo_via")
     var carga = document.getElementsByName("carga_aceptada")
-
+    var foto = document.getElementsByName('fotografia');
 
     var data = [];
 
@@ -47,19 +56,22 @@
         var street = calle[i]
         var way = via[i]
         var charge = carga[i]
+        var photo = foto[i]
 
         data.push({ cord:[] });
         data[data.length-1].cord.push( {lat: lat.value, long:long.value, nom_mun:nom_mun.value, nom_col:nom_col.value,
-            street: street.value, way: way.value, charge: charge.value });
+            street: street.value, way: way.value, charge: charge.value, photo: photo.value });
 
     }
 
    for (var i = 0; i < data.length; i++) {
 
        for (let variable of data[i].cord) {
-                    marker = new L.marker([variable['lat'],variable['long']]).bindPopup('Municipio: '+variable['nom_mun']+'<br>' +
+           console.log(variable['photo'])
+
+           marker = new L.marker([variable['lat'],variable['long']]).bindPopup('Municipio: '+variable['nom_mun']+'<br>' +
                         'Colonia: '+variable['nom_col']+'<br>Calle: '+variable['street']+'<br>Tipo de Via:'+variable['way']+'' +
-                        '<br>Carga Aceptada: '+variable['charge'])
+                        '<br>Carga Aceptada: '+variable['charge']+'<br>Imagen: '+myImage)
                     .addTo(myMap);
         }
     }
