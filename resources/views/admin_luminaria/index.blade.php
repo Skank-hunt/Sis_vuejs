@@ -93,7 +93,9 @@
                                         <div class="text-left font-weight-bold pt-2">@{{ u.entry.observaciones }}</div>
                                     </template>
                                     <template slot="Fotografia" slot-scope="u">
-                                        <div class="text-left font-weight-bold pt-2">@{{ u.entry.fotografia }}</div>
+                                        <div class="text-left font-weight-bold pt-2">
+                                            <img :src="'../files/foto/'+u.entry.fotografia" alt="no hay foto" style="width: 50px; height: 50px">
+                                        </div>
                                     </template>
                                     <template slot="Conciliada" slot-scope="u">
                                         <div class="text-left font-weight-bold pt-2">@{{ u.entry.conciliada }}</div>
