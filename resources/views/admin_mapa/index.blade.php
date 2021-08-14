@@ -24,12 +24,9 @@
   <script type="text/javascript">
 
       var urle = window.location.hostname;
-      var url = urle+'/files/foto/'
+      var url = '../files/foto/'
 
-      var myImage = new Image(150,150);
-      myImage.src = url+'foto 4611539e2da192.jpg';
-
-      console.log(myImage)
+      // console.log(urle+'\n'+url)
     let myMap = L.map('myMap').setView([19.28786, -99.65324], 13)
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -56,8 +53,18 @@
         var street = calle[i]
         var way = via[i]
         var charge = carga[i]
-        var photo = foto[i]
+        var photo = foto[i]/*function () {
+            var img = new Image();
+            img.src = foto;
+            // img.alt = title;
+            // img.title = title;
+            return img;
+        }
 
+        console.log(url+photo().values)
+        // data.push((createImage()))*/
+
+        // console.log(photo[i])
         data.push({ cord:[] });
         data[data.length-1].cord.push( {lat: lat.value, long:long.value, nom_mun:nom_mun.value, nom_col:nom_col.value,
             street: street.value, way: way.value, charge: charge.value, photo: photo.value });
@@ -71,7 +78,7 @@
 
            marker = new L.marker([variable['lat'],variable['long']]).bindPopup('Municipio: '+variable['nom_mun']+'<br>' +
                         'Colonia: '+variable['nom_col']+'<br>Calle: '+variable['street']+'<br>Tipo de Via:'+variable['way']+'' +
-                        '<br>Carga Aceptada: '+variable['charge']+'<br>Imagen: '+myImage)
+                        '<br>Carga Aceptada: '+variable['charge']+'<br>Imagen: '+'<img src="'+url+variable['photo']+'" alt="" style="height: 50px; width: 50px">')
                     .addTo(myMap);
         }
     }
