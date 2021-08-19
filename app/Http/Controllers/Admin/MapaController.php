@@ -12,6 +12,7 @@ class MapaController extends Controller
     {
         $datos = DB::select('SELECT latitud,longitud, nombre_municipio, nombre_colonia, nombre_calle, tipo_via, 
                                    carga_aceptada, fotografia FROM luminarias_completa');
-        return view('admin_mapa.index',compact('datos'));
+        $datos2 = DB::select('SELECT DISTINCT(nombre_colonia) FROM luminarias_completa');
+        return view('admin_mapa.index',compact('datos','datos2'));
     }
 }

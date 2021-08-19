@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+
     <!-- Scripts -->
     <script src="{{asset('js/jquery.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('js/app.js') }}"></script>
@@ -23,6 +24,7 @@
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 
 </head>
 
@@ -45,20 +47,29 @@
                             <a href="{{url('/admin/usuarios')}}" class="dashboard-nav-dropdown-item">Usuarios</a>
                         </div>
                     </div>
-                    <a href="{{ url('/admin/luminaria') }}" class="dashboard-nav-item"><i class="fas fa-tachometer-alt"></i> Luminarias</a>
-                    <a href="#" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Upload </a>
                     <div class='dashboard-nav-dropdown'>
                         <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                            <i class="fas fa-money-check-alt"></i> Documentos
+                            <i class="fas fa-highlighter"></i> Registros
                         </a>
                         <div class='dashboard-nav-dropdown-menu'>
-                            <a href="#" class="dashboard-nav-dropdown-item">Informes</a>
-                            <a href="#" class="dashboard-nav-dropdown-item">Ficha Tecnica</a>
-                            <a href="{{ url('/admin/security') }}" class="dashboard-nav-dropdown-item"> Seguridad</a>
+                            <a href="{{ url('/admin/luminaria') }}" class="dashboard-nav-dropdown-item"><i class="fas fa-lightbulb"></i>&nbsp; Luminarias</a>
+                            <a href="#!" class="dashboard-nav-dropdown-item"><i class="fas fa-paint-roller"></i>&nbsp; Publicitarios</a>
+
                         </div>
                     </div>
-                    <a href="{{url('/admin/mapa')}}" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Mapa Luminarias </a>
-                    <a href="#" class="dashboard-nav-item"><i class="fas fa-user"></i> Profile </a>
+{{--                    <a href="#" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Upload </a>--}}
+                    <div class='dashboard-nav-dropdown'>
+                        <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                            <i class="fas fa-folder"></i> Documentos
+                        </a>
+                        <div class='dashboard-nav-dropdown-menu'>
+                            <a href="#" class="dashboard-nav-dropdown-item"><h6><i class="fas fa-file-alt"></i>&nbsp; Informes</h6></a>
+                            <a href="#" class="dashboard-nav-dropdown-item"><i class="fas fa-file-alt"></i>&nbsp; Ficha Tecnica</a>
+                            <a href="{{ url('/admin/security') }}" class="dashboard-nav-dropdown-item"><i class="fas fa-file-alt"></i> &nbsp; Seguridad</a>
+                        </div>
+                    </div>
+                    <a href="{{url('/admin/mapa')}}" class="dashboard-nav-item"><i class="fas fa-map-marked-alt"></i> Mapa Luminarias </a>
+                    <a href="#" class="dashboard-nav-item"><i class="fas fa-user"></i> Perfil </a>
                     <div class="nav-item-divider"></div>
                     <a href="{{ route('logout') }}" class="dashboard-nav-item"
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">

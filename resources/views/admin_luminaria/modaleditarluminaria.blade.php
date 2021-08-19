@@ -35,10 +35,6 @@
                         <div class="form-group col-md-4">
                             <label for="tipo_carcasa">Carcasa</label>
                             <input type="text" v-model="infoLumin.values.tipo_carcasa" class="form-control" id="tipo_carcasa" name="tipo_carcasa">
-                            <select name="tipo_carcasa" id="tipo_carcasa" v-model="tipo_carcasa" class="custom-select custom-select-md">
-                                <option value="" selected disabled="true">vacío</option>
-                                <option v-for="dato in finder" v-bind:value="dato.coodigo_luminaria">@{{ tipo_luminaria }}</option>
-                            </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="tipo_poste">Poste</label>
